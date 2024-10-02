@@ -94,7 +94,7 @@ jobs:
       - name: Log in to Azure using OIDC
         uses: azure/login@v1
         with:
-          creds: '{"client-id":"${{ secrets.AZ_CLIENT_ID }}","clientSecret":"${{ secrets.AZ_CLIENT_SECRET }}","subscription-id":"${{ secrets.AZ_SUBSCRIPTION_ID }}","tenant-id":"${{ secrets.AZ_TENANT_ID }}"}'
+          creds: '{"client-id":"${{ secrets.AZ_CLIENT_ID }}","subscription-id":"${{ secrets.AZ_SUBSCRIPTION_ID }}","tenant-id":"${{ secrets.AZ_TENANT_ID }}"}'
 
       - name: Deploy resources
         uses: azure/arm-deploy@v1
@@ -102,6 +102,5 @@ jobs:
         with:
           scope: subscription
           region: westeurope
-          deploymentName: ${{ vars.AZ_APP_NAME }}-deployment
           template: ./infra/container-app/main.bicep
           parameters: "containerImage=${{ needs.package-and-publish.outputs.container }} env=staging"
