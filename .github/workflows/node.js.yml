@@ -104,4 +104,4 @@ jobs:
           region: westeurope
           deploymentName: ${{ vars.AZ_APP_NAME }}-deployment
           template: ./infra/container-app/main.bicep
-          parameters: "containerImage=${{ needs.package-and-publish.outputs.container }} actor=${{ github.actor }} appName=aw-${{ vars.AZ_APP_NAME }} repository=${{ github.repository }} env=staging"
+          parameters: "containerImage=${{ needs.package-and-publish.outputs.container }} appName=aw-${{ vars.AZ_APP_NAME }} repository=${{ github.repository }} env=staging"
