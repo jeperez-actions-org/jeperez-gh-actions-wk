@@ -86,7 +86,7 @@ jobs:
       id-token: write
     environment:
       name: staging
-      url: "${{ steps.deploy.outputs.url }}"
+      url: "https://${{ steps.deploy.outputs.url }}"
 
     steps:
       - uses: actions/checkout@v2
@@ -103,5 +103,5 @@ jobs:
           scope: subscription
           region: westeurope
           deploymentName: ${{ vars.AZ_APP_NAME }}-deployment
-          template: ./infra/main.bicep
-          parameters: "containerImage=${{ needs.package-and-publish.outputs.container }} actor=${{ github.actor }} appName=aw-${{ vars.AZ_APP_NAME }} repository=${{ github.repository }}"
+          template: ./infra/container-app/main.bicep
+          parameters: "containerImage=${{ needs.package-and-publish.outputs.container }} actor=${{ github.actor }} appName=aw-${{ vars.AZ_APP_NAME }} repository=${{ github.repository }} env=staging"
