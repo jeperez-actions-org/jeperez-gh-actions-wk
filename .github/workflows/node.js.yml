@@ -103,4 +103,4 @@ jobs:
           scope: subscription
           region: westeurope
           template: ./infra/container-app/main.bicep
-          parameters: "containerImage=${{ needs.package-and-publish.outputs.container }} env=staging"
+          parameters: "containerImage=${{ needs.package-and-publish.outputs.container }}, env=staging"
