@@ -94,10 +94,10 @@ jobs:
       - name: Log in to Azure using OIDC
         uses: azure/login@v1
         with:
-          clientId: ${{ secrets.AZ_CLIENT_ID }}
+          client-id: ${{ secrets.AZ_CLIENT_ID }}
           clientSecret: ${{ secrets.AZ_CLIENT_SECRET }}
-          subscriptionId: ${{ secrets.AZ_SUBSCRIPTION_ID }}
-          tenantId: ${{ secrets.AZ_TENANT_ID }}
+          subscription-id: ${{ secrets.AZ_SUBSCRIPTION_ID }}
+          tenant-id: ${{ secrets.AZ_TENANT_ID }}
 
       - name: Deploy resources
         uses: azure/arm-deploy@v1
